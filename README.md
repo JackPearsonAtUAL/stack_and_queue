@@ -3,11 +3,23 @@
 Unless stated within the code or the week overview's disclaimer, AI has not been used for parts of this project
 
 ### Week 1: Stacks and Queues
+**Files**
+
+    stacks_and_queues.py
+
 **Task:** Using Python and object oriented programming, create a Stack class and a Queue class that uses lists as the backing data structure
 
 **Objectives:** Implementing Stacks and Queues in code
 
 ### Week 2: Linked Lists
+**Files**
+
+    linked_lists.py
+
+    doubly_linked_lists.py
+
+    linked_queues.py
+
 **Task 1:** Starting from the Queue data structure code from last week, we will seek to improve the implementation and performance of the Queue data structure using linked list. We will also look at how we can potentially extend the functionalities available within our Queue data structure.
 
 **Objectives:** Improving Queue from last week using linked list
@@ -17,11 +29,17 @@ Unless stated within the code or the week overview's disclaimer, AI has not been
 **Objectives:** Implement a circular queue in code
 
 **Additional tasks:**
-    Implement a method that reverses the current queue
-    Implement a fixed sized queue and stack
+
+- Implement a method that reverses the current queue
+
+- Implement a fixed sized queue and stack
 
 
 ### Week 3: Set Theory
+**Files**
+
+    sort.py
+
 **Task 1:** Learning Outcomes: In this lecture, we will introduce set theory and look at how we can operate on sets using simple operations. We will also look at how we can use sets in Python. After the introduction of sets, we will start exploring the larger topic of graph theory and look at how set theory can be applied to describe graph theory.
 
 **Objectives:** Set theory and Graph theory 
