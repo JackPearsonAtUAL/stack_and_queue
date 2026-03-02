@@ -34,13 +34,15 @@ class Queue:
         if self.isEmpty():
             raise IndexError("Queue Underflow")
 
-        removed = self.front
-        self.front = self.front.next
+        removed = self.front # holds the now old front
+        self.front = self.front.next # sets the new front
+
+        # used if there's only one entry in the list
         if self.front is None:
             self.back = None     
 
-        self.currentSize -= 1
-        return removed
+        self.currentSize -= 1 # updates the queue size
+        return removed # used for debugging
     
     # gets element at the front of the queue
     def getFront(self):
