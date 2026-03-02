@@ -1,6 +1,4 @@
-<span style="color:blue">
 # Python Data Structure Analysis
-</span>
 ## Disclaimer
 Unless stated within the code or the week overview's disclaimer, AI has not been used for parts of this project
 
