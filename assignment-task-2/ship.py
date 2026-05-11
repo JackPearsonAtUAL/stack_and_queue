@@ -21,23 +21,25 @@ class Ship:
     def update(self, mouse_pos, asteroids, game_status):
         # Action required!
 
-        distance = np.array([mouse_pos[0] - self.pos[0], mouse_pos[1] - self.pos[1]]) # The distance between the two x and two y coords
+        distance = mouse_pos - self.pos # The distance between the two x and two y coords
         dxy = math.hypot(distance[0], distance[1]) # The straight line made using the distance variable
 
         # Allows the speed to be dynamic, based on the distance from the cursor
-        speed = 0.05 * dxy
-
-        # Set position of ship based on given parameters
-        # The if condition stops the ship jittering when reaching the mouse's position
-        direction = np.array([(speed) * math.sin(self.angle), 
-                                (speed) * math.cos(self.angle)])
-        
-        if dxy > 0:           
-            self.pos += direction
-
+        speed = 0.05
 
         # Determines the angle needed to move the ship to the cursor for the next update() loop
-        self.angle = np.arctan2(distance[0], distance[1])
+        self.angle = np.arctan2(distance[1], distance[0]) + np.pi
+
+        """        
+        Disused direction calculation
+        #Set direction of ship based on the speed and angle
+        #direction = np.array([(speed) * math.sin(self.angle), (speed) * math.cos(self.angle)])
+        """
+        
+        # The if condition stops the ship jittering when reaching the mouse's position
+        if dxy > 5:       
+            self.pos += (distance * speed) # Sets the new position of the ship     
+
 
         # Leave the rest of the code
         # Check for collision

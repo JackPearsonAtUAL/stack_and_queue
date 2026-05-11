@@ -5,8 +5,6 @@ import numpy as np
 def rotate(vector, angle):
 	# Action required!
 
-    print(angle)
-
     # creates the sin and cos of the radin angle
     c, s = np.cos(angle), np.sin(angle) 
 
@@ -14,8 +12,10 @@ def rotate(vector, angle):
     rotationMatrix = np.array([[c, -s],
                                [s, c]]) 
 
+
     #return the new angle
-    return np.dot(rotationMatrix, vector) 
+    return rotationMatrix @ vector
+    return vector
 
 
 # Map a value from one range to another
