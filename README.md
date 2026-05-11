@@ -17,7 +17,7 @@ For more information look at the ReadMe inside:
 ## Week 1: Stacks and Queues
 **Files**
 
-    stacks_and_queues.py
+    aditional-files/stacks_and_queues.py
 
 **Task:** Using Python and object oriented programming, create a Stack class and a Queue class that uses lists as the backing data structure
 
@@ -26,11 +26,11 @@ For more information look at the ReadMe inside:
 ## Week 2: Linked Lists
 **Files**
 
-    linked_lists.py
+    aditional-files/linked_lists.py
 
-    doubly_linked_lists.py
+    aditional-files/doubly_linked_lists.py
 
-    linked_queues.py
+    aditional-files/linked_queues.py
 
 **Task 1:** Starting from the Queue data structure code from last week, we will seek to improve the implementation and performance of the Queue data structure using linked list. We will also look at how we can potentially extend the functionalities available within our Queue data structure.
 
