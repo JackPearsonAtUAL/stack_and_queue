@@ -39,14 +39,22 @@ class Graph:
 						self.adjacency_matrix[vertex][vertex2] = 1
 
 	def walk(self, source, target):
+		# Attempt 1
+		"""
 		verts = list(self.vertices)
+		matrix = self.adjacency_matrix
+
 		start = verts.index(source) # Holds the starting node
+		print(matrix[verts[start]])
+		for a in matrix[verts[start]]:
+			if (matrix[verts[start]][a] != 0):
+				print(a)
 		end = verts.index(target)  # holds the end node
 
 		dist = [float('inf')] * len(verts) # Holds the distances between the source and current vertex
-		prev = [None] * len(verts) # Holds the data on all previous vertices
+		dist[start] = 0 # dist[0] is referencing the starting vertex
 
-		dist[0] = 0 # dist[0] is referencing the starting vertex
+		prev = [None] * len(verts) # Holds the data on all previous vertices
 
 		visited = [False] * len(verts) # Boolean for whether the node has been visited yet
 
@@ -58,7 +66,7 @@ class Graph:
 				# This comparison is used to determine the smallest distance
 				if not visited[i] and dist[i] < minDist:
 					minDist = dist[i] # Sets the new smallest distance
-					u = i # Sets the next vertex
+					u = i # Sets the current vertex
 					print("Value of u:", u, "value of i:", i, "min distance =", minDist)
 				
 				# if there is no next node or we're at the target, end the loop
@@ -70,12 +78,73 @@ class Graph:
 				visited[u] = True # updates the code so it knows the current vertex has been visited
 				print("Vertex visited:", verts[u]) # debug
 
+				# Checks non visited adjacent vertices
 				for v in range(len(verts)):
-					# makes sure that the current iteration is valid and that v hasn't been visited
-					if self.adjacency_matrix[u][v] != 0 and not visited[v]:
-						alt = dist[u] + self.adjacency_matrix[u][v]			
+					# If the adjacent vertex has a shorter distance than the current, use this one instead
+					if matrix[u][v] != 0 and not visited[v]:
+						alt = dist[u] + matrix[u][v]
 						if alt < dist[v]:
 							dist[v] = alt
+							prev[v] = u
+		return prev + dist"""
 
-		return dist
+		# Attempt 2
+		"""
+		verts = list(self.vertices)
+		matrix = self.adjacency_matrix
+
+		start = verts.index(source) # Holds the starting node
+		end = verts.index(target)  # holds the end node
+
+		dist = [float('inf')] * len(verts) # Holds the distances between the source and current vertex
+		dist[start] = 0 # dist[0] is referencing the starting vertex
+
+		visited = [False] * len(verts)
+		visited[start] = True
+
+		currentVert = start
+		currentStep = None
+		takenPath = [] # Holds the returned list
+
+		possibleStep = []
+		# Loop gets all the possible steps
+		for x in matrix[verts[start]]:
+			if (matrix[verts[start]][x] != 0):
+				possibleStep.append(x)
+				takenPath.append(currentVert)
+				
+
+		while(currentVert != end):
+			# loop through each possible step to see which have a connection to the target
+			for v in range(len(possibleStep)):
+				# When there is no current step, set one
+				if currentStep == None:
+					currentStep = possibleStep[v]
+				# Check current step can make it to the target
+				for x in matrix[verts[v]]:					
+					if matrix[verts[v]].get("d") != 1:									
+						print("ln 121, no target found; current step =", currentStep)
+						print(matrix[verts[v]].get("d"))
+						currentStep = None
+						
+						break
+					else:	
+						print("Target has been found; possible step =", possibleStep[v])					
+						# if it can make sure there isn't already a step
+						if currentStep != possibleStep[v] and currentStep != None:
+							print("debug 3")
+							# if there is a step, compare the distances
+							if matrix.get(currentStep) < matrix.get(possibleStep[v]):
+								# the shorter distance is the new step
+								currentStep = possibleStep[v]
+								print("Current step:",currentStep)
+								print("Possible step:",possibleStep[v])
+					break
+				print("Current step is:", currentStep)				
+
+					
+
+			break
+		return takenPath"""
+		return []
 
