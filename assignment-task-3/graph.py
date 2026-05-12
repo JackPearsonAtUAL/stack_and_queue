@@ -146,5 +146,41 @@ class Graph:
 
 			break
 		return takenPath"""
+
+		# Code steps
+		"""
+		1. Create set() of unvisited nodes
+		2. Create variable for distances. Each distance is float('inf') until found
+		3. From unvisited set, find node with smallest distance to set new current node
+			if unvisited set is empty or contains nodes with float('inf'), algorithm skips to setp 6.
+		4. For current node, look at all unvisited neibours and update their distance
+			compare new calculated distance to the current assigned one of the neighbour, assign smallest as new distance
+		5. Look at all unvisited neighbour nodes, current node is removed from unvisited set. This stops it from being rechecked
+		6. Once loop ends (3. -> 5.) every visited node has it's shortest node
+		"""
+
+		unvisited = self.vertices
+		distance = dict()
+		prevoius = dict()
+		
+		print(unvisited)
+			
+		for v in unvisited:
+			distance[v] = float('inf')
+			prevoius[v] = None
+
+		distance[source] = 0
+
+		#loop start
+			# Check for smallest value
+			# Compare values with neighbours from self.adjacency_list for smallest distance
+			# 
+		
+		while(len(unvisited) > 0):
+			smallesDist = float('inf')
+
+			
+			break
+
 		return []
 
