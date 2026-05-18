@@ -17,8 +17,7 @@ print("Graph 1, step 2 - " + str(path[1] == "b"))
 print("Graph 1, step 3 - " + str(path[2] == "d"))
 
 
-
-"""graph = Graph(
+graph = Graph(
 	["a", "b", "c", "d", "e", "f"],
 	{
 		("a", "b"): 7, 
@@ -38,4 +37,4 @@ print("Graph 1 walk has 4 steps - " + str(len(path) == 4))
 print("Graph 2, step 1 - " + str(path[0] == "a"))
 print("Graph 2, step 2 - " + str(path[1] == "c"))
 print("Graph 2, step 3 - " + str(path[2] == "f"))
-print("Graph 2, step 4 - " + str(path[3] == "e"))"""
+print("Graph 2, step 4 - " + str(path[3] == "e"))

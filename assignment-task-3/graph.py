@@ -39,7 +39,7 @@ class Graph:
 						self.adjacency_matrix[vertex][vertex2] = 1
 
 	def walk(self, source, target):
-		# Attempt 1
+		# Attempt 1: Fail
 		"""
 		verts = list(self.vertices)
 		matrix = self.adjacency_matrix
@@ -88,7 +88,7 @@ class Graph:
 							prev[v] = u
 		return prev + dist"""
 
-		# Attempt 2
+		# Attempt 2: Fail
 		"""
 		verts = list(self.vertices)
 		matrix = self.adjacency_matrix
@@ -147,40 +147,74 @@ class Graph:
 			break
 		return takenPath"""
 
-		# Code steps
+		# Attempt 3: Success
 		"""
 		1. Create set() of unvisited nodes
 		2. Create variable for distances. Each distance is float('inf') until found
 		3. From unvisited set, find node with smallest distance to set new current node
 			if unvisited set is empty or contains nodes with float('inf'), algorithm skips to setp 6.
-		4. For current node, look at all unvisited neibours and update their distance
-			compare new calculated distance to the current assigned one of the neighbour, assign smallest as new distance
+		4. For current node, look at all unvisited neibours
+			compare newly calculated distance to the current distance of the neighbour:
+				current node distance + edge value = new neighbour distance
+			 update distance to be the smallest distance
 		5. Look at all unvisited neighbour nodes, current node is removed from unvisited set. This stops it from being rechecked
 		6. Once loop ends (3. -> 5.) every visited node has it's shortest node
 		"""
 
 		unvisited = self.vertices
-		distance = dict()
-		prevoius = dict()
-		
-		print(unvisited)
+		distance = dict() # Holds the distances between each of the nodes
+		previous = dict() # Holds all the previously vistied nodes and which node they came from
 			
 		for v in unvisited:
 			distance[v] = float('inf')
-			prevoius[v] = None
+			previous[v] = None
 
 		distance[source] = 0
+		currentNode = source
 
-		#loop start
-			# Check for smallest value
-			# Compare values with neighbours from self.adjacency_list for smallest distance
-			# 
-		
 		while(len(unvisited) > 0):
-			smallesDist = float('inf')
+			smallestDist = float('inf')
 
+			# Get current node
+			for n in distance:
+				if distance[n] < smallestDist and n in unvisited:
+					currentNode = n
+					smallestDist = distance[n]
+
+			if currentNode != target and smallestDist != float('inf'):
+				# Get all neighbour nodes
+				for n in self.adjacency_list[currentNode]:
+					# Check that n hasn't been visited
+					if n in unvisited:
+						# Calculate the total distance between cNode and neighbour
+						tempDist = distance[currentNode] + self.edges[(currentNode, n)]
+
+						# If value is smaller than the current distanc, it is the new distance
+						if tempDist < distance[n]:
+							distance[n] = tempDist
+							previous[n] = currentNode
+
+				unvisited.remove(currentNode)	
+			# Ends the while if the target has been reached
+			else:
+				break
+		
+
+		"""
+		Pseudocode from the wikapedia article on Dijkstra's algorithm
+		1  S ← empty sequence
+		2  u ← target
+		3  if prev[u] is defined or u = source:    // Proceed if the vertex is reachable
+		4      while u is defined:                 // Construct shortest path with stack S
+		5          S.push(u)                       // Push the vertex onto the stack
+		6          u ← prev[u]                     // Traverse from target to source
+		"""
+		path = []
+		iteration = target
+		if previous[iteration] != None or iteration == source:
+			while iteration != None:
+				path.insert(0, iteration)
+				iteration = previous[iteration]
 			
-			break
-
-		return []
+		return path
 
