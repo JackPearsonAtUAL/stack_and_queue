@@ -39,6 +39,7 @@ class Graph:
 						self.adjacency_matrix[vertex][vertex2] = 1
 
 	def walk(self, source, target):
+		# region failed attempts
 		# Attempt 1: Fail
 		"""
 		verts = list(self.vertices)
@@ -146,6 +147,7 @@ class Graph:
 
 			break
 		return takenPath"""
+		# endregion
 
 		# Attempt 3: Success
 		"""
@@ -169,8 +171,8 @@ class Graph:
 			distance[v] = float('inf')
 			previous[v] = None
 
+		# As we start at source, it's distance is 0
 		distance[source] = 0
-		currentNode = source
 
 		while(len(unvisited) > 0):
 			smallestDist = float('inf')
@@ -209,7 +211,9 @@ class Graph:
 		5          S.push(u)                       // Push the vertex onto the stack
 		6          u ← prev[u]                     // Traverse from target to source
 		"""
-		path = []
+		# This works by going backwards, starting at the end point (target) and reaching the start (source)
+
+		path = [] # This holds the route taken
 		iteration = target
 		if previous[iteration] != None or iteration == source:
 			while iteration != None:

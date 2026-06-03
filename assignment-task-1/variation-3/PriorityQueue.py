@@ -29,14 +29,26 @@ class PriorityQueue:
 		self.countSort()
 
 	def countSort(self):
+		# Loops until the list of inputted data is empty
 		while len(self.queue) != 0:
-			temp = self.queue.pop(0)
-			index = temp[1]-1
-			self.counts[index].append(temp)
+			temp = self.queue.pop(0) # Holds the data at the current index
+			
+			# Becuase the priority queue values start at 1, 
+			# I lowered them by one so that the counts list 
+			# didn't have an empty nested list
+			index = temp[1]-1 
 
+			# Adds the temp value to the nested list based on it's value
+			self.counts[index].append(temp)
+		# Loops through the now filled counts' nested lists
 		for i in range(0, 6):
+			# Loops through the current nested list untilis is empty
 			while len(self.counts[i]) != 0:
+				# Holds the data at the current index, 
+				# while also removing it from the list
 				temp = self.counts[i].pop(0)
+
+				#Adds the data back to the original list to be returned to main.py
 				self.queue.append(temp)
 					
 					

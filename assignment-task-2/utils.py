@@ -15,7 +15,7 @@ def rotate(vector, angle):
 
     #return the new angle
     return rotationMatrix @ vector
-    return vector
+    
 
 
 # Map a value from one range to another

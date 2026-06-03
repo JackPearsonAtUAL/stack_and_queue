@@ -12,7 +12,6 @@ class PriorityQueue:
 			self.queue.append(list(data[i]))
 
 		self.insertSort()
-		print(self.queue)
 
 	def get(self):
 		popped = self.queue[0][0] # Gets string value of first object in queue

@@ -27,7 +27,7 @@ class PriorityQueue:
     def bubbleSort(self):
         """
         Base for the bubble sort from:
-        https://www.w3schools.com/python/python_dsa_bubblesort.asp#:~:text=Example,-Improved
+        https://www.w3schools.com/python/python_dsa_bubblesort.asp
         """
         # Loops through the queue one object at a time
         for i in range(len(self.queue) - 1):

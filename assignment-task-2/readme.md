@@ -8,11 +8,11 @@ Implament the code specified in the Week 8 - Numpy and Task 2 lecture. See recor
     PyGame
 
 ### Requirements
-Make the astroids move in a random direction
+Make the astroids move in a random direction (astroid.py)
 
-Have the ship follow the cursor, with cursor distance affecting the speed
+Have the ship follow the cursor, with cursor distance affecting the speed (ship.py)
 
-Always have the ship pointing at the cursor
+Always have the ship pointing at the cursor (utils.py)
 
 ## Programmer Notes
 **DO NOT CHANGE ANYTHING OUTSIDE OF THE __init__ and update() LOOP**
