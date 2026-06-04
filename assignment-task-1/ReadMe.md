@@ -1,4 +1,7 @@
 # Python Data Structure Analysis
+## Disclaimer
+AI has not been used in the creation fo this task.
+
 ## Assignment Task 1: Linear data structure
 **Task:** The first of three tasks to be submitted for the final assessment will be introduced in this session. We will use the first hour to provide explanation and requirements of the task and for you to work on a preliminary version of it.
 

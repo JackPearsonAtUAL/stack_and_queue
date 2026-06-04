@@ -1,4 +1,7 @@
 # Python Data Structure Analysis
+## Disclaimer
+AI has not been used in the creation fo this task.
+
 ## Assignment Task 2
 ### Task:
 Implament the code specified in the Week 8 - Numpy and Task 2 lecture. See recording for more details.
